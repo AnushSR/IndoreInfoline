@@ -28,6 +28,6 @@ public class PlacesViewHolder extends RecyclerView.ViewHolder {
 
     public void bindToPost(Places places) {
         placeName.setText(places.placeName);
-        distance.setText(places.distance + "kms from city");
+        distance.setText("" + places.distance + "kms from city");
     }
 }

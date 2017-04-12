@@ -7,12 +7,13 @@ import com.google.firebase.database.IgnoreExtraProperties;
  */
 @IgnoreExtraProperties
 public class Places {
-    Places() {
-    }
 
     public String placeName;
     public String placeURL;
     public int distance;
+
+    Places() {
+    }
 
     public Places(String placeName, String placeURL, int distance) {
         this.placeName = placeName;

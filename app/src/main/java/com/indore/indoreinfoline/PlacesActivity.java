@@ -27,9 +27,9 @@ public class PlacesActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_places);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Places places = new Places("Rajwada", "dfsdf", 1);
+        Places places = new Places("Rajwada", "http://tripsthan.com/wp-content/uploads/2015/04/rajwada-3.jpg", 1);
         mDatabase.setValue(places);
-        //getAllPlaces();
+        getAllPlaces();
     }
 
     private void getAllPlaces() {

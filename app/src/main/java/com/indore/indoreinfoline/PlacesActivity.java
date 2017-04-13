@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -27,20 +28,39 @@ public class PlacesActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_places);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Places places = new Places("Rajwada", "http://tripsthan.com/wp-content/uploads/2015/04/rajwada-3.jpg", 1);
-        mDatabase.setValue(places);
+//        Places places = new Places("Rajwada", "http://tripsthan.com/wp-content/uploads/2015/04/rajwada-3.jpg", 1);
+//        mDatabase.setValue(places);
         getAllPlaces();
     }
 
     private void getAllPlaces() {
+        showProgressDialogue();
         mAdapter = new FirebaseRecyclerAdapter<Places, PlacesViewHolder>(Places.class, R.layout.item_places, PlacesViewHolder.class, mDatabase) {
 
             @Override
             protected void populateViewHolder(PlacesViewHolder viewHolder, Places model, int position) {
                 viewHolder.bindToPost(model);
-                Picasso.with(getApplicationContext()).load(model.placeURL).into(viewHolder.placePic);
+                Picasso.with(getApplicationContext()).load(model.placeURL).placeholder(R.mipmap.ic_launcher).into(viewHolder.placePic);
+            }
+
+            @Override
+            protected void onDataChanged() {
+                super.onDataChanged();
+                hideProgressDialogue();
             }
         };
         recyclerView.setAdapter(mAdapter);
+    }
+
+    public void showProgressDialogue() {
+        if (progressBar != null) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void hideProgressDialogue() {
+        if (progressBar != null) {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 }

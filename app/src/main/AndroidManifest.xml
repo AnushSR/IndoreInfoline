@@ -43,7 +43,16 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".viewholder.PlaceDetailActivity"
+            android:label="@string/title_activity_place_detail"
+            android:parentActivityName=".PlacesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.indore.indoreinfoline.PlacesActivity" />
+        </activity>
     </application>
 
 </manifest>

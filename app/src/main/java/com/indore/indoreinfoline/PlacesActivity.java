@@ -1,5 +1,6 @@
 package com.indore.indoreinfoline;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.indore.indoreinfoline.model.Places;
+import com.indore.indoreinfoline.viewholder.PlaceDetailActivity;
 import com.indore.indoreinfoline.viewholder.PlacesViewHolder;
 
 public class PlacesActivity extends AppCompatActivity {
@@ -39,9 +41,19 @@ public class PlacesActivity extends AppCompatActivity {
         mAdapter = new FirebaseRecyclerAdapter<Places, PlacesViewHolder>(Places.class, R.layout.item_places, PlacesViewHolder.class, mDatabase) {
 
             @Override
-            protected void populateViewHolder(PlacesViewHolder viewHolder, Places model, int position) {
+            protected void populateViewHolder(PlacesViewHolder viewHolder, final Places model, int position) {
                 viewHolder.bindToPost(model);
                 Glide.with(getApplication()).load(model.placeURL).placeholder(R.mipmap.ic_launcher).into(viewHolder.placePic);
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(PlacesActivity.this, PlaceDetailActivity.class);
+                        intent.putExtra(PlaceDetailActivity.PLACE_NAME, model.placeName);
+                        intent.putExtra(PlaceDetailActivity.PLACE_TEXT, model.placeName);
+                        intent.putExtra(PlaceDetailActivity.PLACE_PIC, model.placeURL);
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override

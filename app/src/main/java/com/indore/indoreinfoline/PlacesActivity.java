@@ -7,12 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.indore.indoreinfoline.model.Places;
 import com.indore.indoreinfoline.viewholder.PlacesViewHolder;
-import com.squareup.picasso.Picasso;
 
 public class PlacesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -24,6 +24,7 @@ public class PlacesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         mDatabase = FirebaseDatabase.getInstance().getReference("places");
         recyclerView = (RecyclerView) findViewById(R.id.recycler_places);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -40,7 +41,7 @@ public class PlacesActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(PlacesViewHolder viewHolder, Places model, int position) {
                 viewHolder.bindToPost(model);
-                Picasso.with(getApplicationContext()).load(model.placeURL).placeholder(R.mipmap.ic_launcher).into(viewHolder.placePic);
+                Glide.with(getApplication()).load(model.placeURL).placeholder(R.mipmap.ic_launcher).into(viewHolder.placePic);
             }
 
             @Override

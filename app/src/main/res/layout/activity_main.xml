@@ -36,6 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:adjustViewBounds="false"
                     app:srcCompat="@mipmap/ic_launcher_round" />
 
                 <ImageView
@@ -43,6 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:text="Nearby Restaurants"
                     app:srcCompat="@mipmap/ic_launcher_round" />
             </LinearLayout>
 

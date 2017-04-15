@@ -9,6 +9,8 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView placesActivity;
+    private ImageView mapsActivity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mapsActivity = (ImageView) findViewById(R.id.View2);
+        mapsActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent1);
+            }
+        });
 
 
     }

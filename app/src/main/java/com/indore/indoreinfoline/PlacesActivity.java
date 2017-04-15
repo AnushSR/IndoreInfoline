@@ -13,7 +13,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.indore.indoreinfoline.model.Places;
-import com.indore.indoreinfoline.viewholder.PlaceDetailActivity;
 import com.indore.indoreinfoline.viewholder.PlacesViewHolder;
 
 public class PlacesActivity extends AppCompatActivity {

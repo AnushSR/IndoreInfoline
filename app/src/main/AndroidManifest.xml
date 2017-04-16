@@ -51,7 +51,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.indore.indoreinfoline.PlacesActivity" />
         </activity>
-        <activity android:name=".BusActivity" />
+        <activity
+            android:name=".BusActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.indore.indoreinfoline.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

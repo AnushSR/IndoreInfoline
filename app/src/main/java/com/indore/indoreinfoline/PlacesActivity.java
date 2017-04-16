@@ -30,8 +30,6 @@ public class PlacesActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_places);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-//        Places places = new Places("Rajwada", "http://tripsthan.com/wp-content/uploads/2015/04/rajwada-3.jpg", 1);
-//        mDatabase.setValue(places);
         getAllPlaces();
     }
 
@@ -48,8 +46,9 @@ public class PlacesActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent intent = new Intent(PlacesActivity.this, PlaceDetailActivity.class);
                         intent.putExtra(PlaceDetailActivity.PLACE_NAME, model.placeName);
-                        intent.putExtra(PlaceDetailActivity.PLACE_TEXT, model.placeName);
+                        intent.putExtra(PlaceDetailActivity.PLACE_TEXT, model.placeText);
                         intent.putExtra(PlaceDetailActivity.PLACE_PIC, model.placeURL);
+                        intent.putExtra(PlaceDetailActivity.PLACE_LOC, model.placeLoc);
                         startActivity(intent);
                     }
                 });

@@ -11,6 +11,8 @@ public class Places {
     public String placeName;
     public String placeURL;
     public int distance;
+    public String placeText;
+    public String placeLoc;
 
     Places() {
     }

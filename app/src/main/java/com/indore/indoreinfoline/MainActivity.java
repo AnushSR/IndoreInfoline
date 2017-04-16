@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView placesActivity;
     private ImageView mapsActivity;
+    private ImageView busActivity;
 
 
     @Override
@@ -32,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent1);
+            }
+        });
+
+        busActivity = (ImageView) findViewById(R.id.View3);
+        busActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MainActivity.this, BusActivity.class);
+                startActivity(intent2);
             }
         });
 

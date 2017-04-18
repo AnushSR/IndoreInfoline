@@ -9,39 +9,84 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="10dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="10dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
-        <TextView
-            android:id="@+id/source"
+        <LinearLayout
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/source"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
 
-        <TextView
-            android:id="@+id/destination"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Source"
+                android:textStyle="bold"
+                style="@style/Base.TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destination"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                style="@style/Base.TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route #"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                style="@style/Base.TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                style="@style/Base.TextAppearance.AppCompat.Body2" />
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/destination" />
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@id/text"
+            android:layout_marginLeft="40dp">
 
-        <TextView
-            android:id="@+id/routeno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rajwada" />
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rajwada"
+                android:layout_marginTop="15dp" />
 
+            <TextView
+                android:id="@+id/routeno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rajwada"
+                android:layout_marginTop="15dp" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rajwada"
+                android:layout_marginTop="15dp" />
+        </LinearLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

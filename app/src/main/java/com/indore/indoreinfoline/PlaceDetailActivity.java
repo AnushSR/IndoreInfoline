@@ -3,6 +3,7 @@ package com.indore.indoreinfoline;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -34,8 +35,9 @@ public class PlaceDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_place_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
         placeName = getIntent().getStringExtra(PLACE_NAME);
         placeText = getIntent().getStringExtra(PLACE_TEXT);
         placePic = getIntent().getStringExtra(PLACE_PIC);
